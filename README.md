@@ -1,5 +1,7 @@
 # oboe.el
 
+[![MELPA](https://melpa.org/packages/oboe-badge.svg)](https://melpa.org/#/oboe)
+
 A simple Emacs temporary buffer management framework.
 
 ## About

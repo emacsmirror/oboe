@@ -303,11 +303,11 @@ If CONFIG is nil, find one from all oboe buffers."
 (defun oboe-revive-last-buffer (&optional config)
   "Find and display last buried buffer with CONFIG.
 The behavior is user-defined when CONFIG is nil."
-  (when-let ((display-method
-              (or (and config
-                       (plist-get config :display))
-                  oboe-default-display-method))
-             (buffer (oboe-find-last-buffer config)))
+  (when-let* ((display-method
+               (or (and config
+                        (plist-get config :display))
+                   oboe-default-display-method))
+              (buffer (oboe-find-last-buffer config)))
     (funcall display-method buffer)))
 
 (defcustom oboe-default-revive-method
@@ -360,7 +360,7 @@ be a symbol for the config name registed in `oboe-config-alist'."
       (oboe-read-config "Revive a temporary buffer with config: "))))
   (oboe-recall-buffer
    (and config
-        (if-let ((config (assoc config oboe-config-alist)))
+        (if-let* ((config (assoc config oboe-config-alist)))
             (cons :name config)
           (error "Unknown config name %s" config)))))
 
