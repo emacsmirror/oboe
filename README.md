@@ -8,7 +8,7 @@ A simple Emacs temporary buffer management framework.
 Emacs has `*scratch*` buffer for temporary elisp scripting.  However,
 sometimes you may want to get a temporary buffer with some other
 specific configuration to do something immediately.  That is not
-something difficult to do but usually diversed in various packages and
+something difficult to do but usually diverged in various packages and
 sometimes there is no such support, which can be really annoying.
 Therefore oboe.el be.
 
@@ -18,7 +18,7 @@ The idea of oboe.el is just as simple as following steps:
 2. create a buffer and load selected configuration
 3. display it according to configuration
 
-The idea looks like a trival version of `org-capture`, but they have
+The idea looks like a trivial version of `org-capture`, but they have
 different target.  oboe is designed as a temporary buffer management
 framework.  It will track created oboe buffers in queues, assigning
 each new buffer with a unique ID.  You can manage all these buffers in
@@ -64,7 +64,7 @@ differences are:
 - `edit-indirect` use `edit-indirect-guess-mode-function` for guessing the major
   mode for indirect edit, `oboe-blow` don't have such a guess function, but
   allow you to select oboe config interactively with a `C-u` prefix.
-- `oboe-blow` is built on `oboe-pipe`, which support flitering after edition and
+- `oboe-blow` is built on `oboe-pipe`, which support filtering after edition and
   recursive context. You can blow upon blow, all contexts are recorded by
   buffers.  You can even print a backtrace or buffer tree by doing an DFS on
   `oboe-blow--lifted-ovs`, which is an alist of `(lifted-buffer . overlay)`.
@@ -266,7 +266,7 @@ is a way to think rather than a method to implement.
   initializes new oboe buffer with previous oboe buffer.  This trick
   is just the same as undo chain, but each snapshot are stored
   separately, and can be sorted by buffer name or other
-  buffer-independet information.  `oboe.el` is performant, you can
+  buffer-independent information.  `oboe.el` is preferment, you can
   build chains with thousands of buffers (as long as you have enough
   memory).
 
@@ -274,7 +274,7 @@ is a way to think rather than a method to implement.
   example, you may set the `:lift` method of your oboe buffer to
   `(lambda (buf) nil)`, which always return `nil`, then you can apply
   a command that does not need an argument as the bellend.  The
-  bellend command is always runned in the context buffer.
+  bellend command is always run in the context buffer.
 
 - Oboe in oboe: You can even write oboe configuration in an oboe
   buffer, then create an oboe buffer according to the configuration
@@ -288,7 +288,7 @@ is a way to think rather than a method to implement.
 
   You can simply type `M-x oboe-pipe RET oboe-new-read RET elisp RET`,
   then you write a plist which is a valid oboe configuration, then you
-  press `C-c C-c` for commiting, a new oboe buffer will be created.
+  press `C-c C-c` for committing, a new oboe buffer will be created.
 
   If you want to tweak an existing config, you can achieve this with
   an oboe pipe with simple `:lift` and `:project` methods:

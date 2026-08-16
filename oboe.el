@@ -226,7 +226,7 @@ Theoretically it won't overflow for normal usage."
   (let* ((class (plist-get config :name))
          (buffers (or (gethash class oboe--classes)
                       (puthash class (list 0) oboe--classes))))
-    ;; update accumulator to make sure buffer id ever repeats
+    ;; update accumulator to make sure buffer id never repeats
     (puthash class (cons (1+ (car buffers)) (cdr buffers))
              oboe--classes)
     ;; use old id before update
